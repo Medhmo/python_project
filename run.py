@@ -63,3 +63,15 @@ HANGMANPICS = ['''
  / \  |
       |
 =========''']
+
+WORDS = ["box", "cat","orange", "syndrome" ]
+
+MAX_WRONG = len(HANGMANPICS) - 1
+
+# Variables
+
+# Word Randomisation
+
+word = random.choice(WORDS)
+
+print(word)
