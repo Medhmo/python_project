@@ -65,7 +65,7 @@ HANGMANPICS = ['''
       |
 =========''']
 
-WORDS = ["box", "cat","orange", "syndrome" ]
+WORDS = ["BOX", "CAT", "ORANGES", "SYNDROME"]
 
 MAX_WRONG = len(HANGMANPICS) - 1
 
@@ -81,7 +81,7 @@ current_guess = "-" * len(word)
 
 # Wrong guesses tracker
 
-wrong_guesses = 0
+WRONG_GUESSES = 0
 
 # Used letters tracker
 
@@ -93,8 +93,27 @@ print("Welcome to Hangman")
 print("Computer will generate a random word from a list")
 print("Try guessing the word")
 
-while wrong_guesses < MAX_WRONG and current_guess != word :
+while WRONG_GUESSES < MAX_WRONG and current_guess != word:
 
-    #print(HANGMANPICS[wrong_guesses])
+    print(HANGMANPICS[WRONG_GUESSES])
+    print("You have used the following letters so far : ", used_letters)
+    print("So far the word is : ")
 
+    guess = input("Please enter your letter guess : ")
+    guess = guess.upper()
 
+# Checks if the letter has been previously used
+
+    while guess in used_letters:
+        print("You have already guessed this letter: ", guess)
+        guess = input("Enter your letter guess: ")
+        guess = guess.upper()
+
+         # Updated the ussed letters list
+
+        used_letters.append(guess)
+
+         # Updates the guesses
+
+        if guess in word:
+            print("Great guess !")
