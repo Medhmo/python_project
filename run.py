@@ -109,11 +109,11 @@ while WRONG_GUESSES < MAX_WRONG and current_guess != word:
         guess = input("Enter your letter guess: ")
         guess = guess.upper()
 
-         # Updated the ussed letters list
+        # Updated the ussed letters list
 
         used_letters.append(guess)
 
-         # Updates the guesses
+        # Updates the guesses
 
         if guess in word:
             print("Great guess !")
