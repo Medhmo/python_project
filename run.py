@@ -81,7 +81,7 @@ current_guess = "-" * len(word)
 
 # Wrong guesses tracker
 
-WRONG_GUESSES = 0
+wrong_guesses = 0
 
 # Used letters tracker
 
@@ -93,11 +93,11 @@ print("Welcome to Hangman")
 print("Computer will generate a random word from a list")
 print("Try guessing the word")
 
-while WRONG_GUESSES < MAX_WRONG and current_guess != word:
+while wrong_guesses < MAX_WRONG and current_guess != word:
 
-    print(HANGMANPICS[WRONG_GUESSES])
+    print(HANGMANPICS[wrong_guesses])
     print("You have used the following letters so far : ", used_letters)
-    print("So far the word is : ")
+    print("So far the word is : ", word) 
 
     guess = input("Please enter your letter guess : ")
     guess = guess.upper()
@@ -117,3 +117,29 @@ while WRONG_GUESSES < MAX_WRONG and current_guess != word:
 
         if guess in word:
             print("Great guess !")
+
+            # Generates a new scrambled version of the word
+
+            updated_current_guess = ""
+            for letter in range(len(word)):
+                if guess == word[letter]:
+                    updated_current_guess += guess
+                else:
+                    updated_current_guess += current_guess[letter]
+    current_guess == updated_current_guess
+  else:
+    print("That was incorrect!")
+
+    # Updates the number of incorrect guesses
+
+    wrong_guesses += 1
+
+# Game Ends
+
+if wrong_guesses == MAX_WRONG
+    print(HANGMANPICS[wrong_guesses])
+    print("You have lost")
+    print("The correct word is", word)
+else:
+    print("Congratulation ! You Won")    
+
