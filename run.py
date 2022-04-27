@@ -91,26 +91,38 @@ wrong_guesses = 0
 
 def updated_current_guess(letter, word):
     global current_guess
-    for i in range(0,len(word)):
+    for i in range(0, len(word)):
         letter = word[i]
         if guess == letter:
             current_guess[i] = guess
     if "_" not in current_guess:
         return True
-    else :
+    else:
         return False 
-def Status() :
+def Status():
     print(current_guess)
          
-       
-            
-"""   
+while game_won == False:
+    Status()
+    guess = input("Please enter your letter guess : ")
+    guess = guess.upper()
 
+    if guess == word:
+        game_won = True
+        current_guess = word
+    if len(guess) == 1 and guess in word:
+        game_won = updated_current_guess(guess, word)
+    else:
+        Status()
 
-# Used letters tracker
+if game_won:
+    print("Congratulation ! You Won")
+else:
+    print("You have lost ")
+"""# Used letters tracker
 
-used_letters = []
-updated_current_guess = ""
+    used_letters = []
+    updated_current_guess = """""
 
 
 
@@ -120,13 +132,20 @@ print("Welcome to Hangman")
 print("Computer will generate a random word from a list")
 print("Try guessing the word")
 
-while wrong_guesses < MAX_WRONG and current_guess != word:
+"""while wrong_guesses < MAX_WRONG and current_guess != word:
 
     
     print("You have used the following letters so far : ", used_letters)
-    print("So far the word is : ", updated_current_guess )
-    guess = input("Please enter your letter guess : ")
-    guess = guess.upper()
+    print("So far the word is : ", updated_current_guess )"""
+
+
+
+
+"""   
+
+
+
+    
 
 # Checks if the letter has been previously used
 
@@ -157,8 +176,8 @@ wrong_guesses += 1
 
 if wrong_guesses == MAX_WRONG:
     print(HANGMANPICS[wrong_guesses])
-    print("You have lost")
+   
     print("The correct word is", word)
 else:
-    print("Congratulation ! You Won")
+    
 """
