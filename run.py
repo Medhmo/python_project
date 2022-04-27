@@ -10,7 +10,7 @@ import random
 # User welcome and username selection
 
 USERNAME = str(input("Please enter a Username : "))
-print("Welcome " + USERNAME + " Best of luck ! ")
+print("Welcome to Hangman " + USERNAME + " Best of luck ! ")
 
 # Constants
 
@@ -87,6 +87,12 @@ wrong_guesses = 0
 
 # Variables
 
+# Main loop creation
+
+# Player greeting and the rules of the game
+print(" The computer will generate a random word from a list")
+print("Try guessing the word")
+
 # Generates a new scrambled version of the word
 
 def updated_current_guess(letter, word):
@@ -119,18 +125,8 @@ if game_won:
     print("Congratulation ! You Won")
 else:
     print("You have lost ")
-"""# Used letters tracker
+    
 
-    used_letters = []
-    updated_current_guess = """""
-
-
-
-# Main loop creation
-
-print("Welcome to Hangman")
-print("Computer will generate a random word from a list")
-print("Try guessing the word")
 
 """while wrong_guesses < MAX_WRONG and current_guess != word:
 
