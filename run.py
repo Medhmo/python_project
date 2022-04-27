@@ -87,6 +87,10 @@ wrong_guesses = 0
 
 used_letters = []
 
+# Remaining lives tracker
+
+lives = 7
+
 # Variables
 
 # Main loop creation
@@ -110,9 +114,10 @@ def updated_current_guess(letter, word):
 def Status():
     #os.system("clear")
     print(current_guess)
-   # print(images.HANGMANPICS)
+    print(images.HANGMANPICS[7-lives])
+    print("You have" ,lives, "lives remaining")
          
-while game_won == False:
+while game_won == False and lives > 0:
     Status()
     guess = input("Please enter your letter guess : ")
     guess = guess.upper()
@@ -123,6 +128,7 @@ while game_won == False:
     if len(guess) == 1 and guess in word:
         game_won = updated_current_guess(guess, word)
     else:
+        lives -= 1
         Status()
          # Updated the ussed letters list
     Status()
@@ -139,7 +145,8 @@ while game_won == False:
     else:
         print("That was incorrect!")
     
-    
+    if lives == 0:
+        print("you ran out of lives , the word is : ", word)
         
 if game_won:
     print("Congratulation ! You Won")
