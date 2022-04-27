@@ -109,6 +109,7 @@ def updated_current_guess(letter, word):
         return False 
 def Status():
     print(current_guess)
+   # print(HANGMANPICS)
          
 while game_won == False:
     Status()
@@ -126,6 +127,7 @@ while game_won == False:
 
     if wrong_guesses < MAX_WRONG and current_guess != word:
         print("You have used the following letters so far : ", used_letters)
+        #print(HANGMANPICS)
         used_letters.append(guess)
     # Checks if the letter has been previously used
     if guess in used_letters:
