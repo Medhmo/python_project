@@ -122,13 +122,21 @@ while game_won == False:
         game_won = updated_current_guess(guess, word)
     else:
         Status()
+         # Updated the ussed letters list
+
     if wrong_guesses < MAX_WRONG and current_guess != word:
         print("You have used the following letters so far : ", used_letters)
         used_letters.append(guess)
-     # Updated the ussed letters list
-
+    # Checks if the letter has been previously used
+    if guess in used_letters:
+        print("You have already guessed this letter: ", guess)
+    # Feedback on the guesses
+    if guess in word:
+        print("Great guess !")
+    else:
+        print("That was incorrect!")
     
-        #print("So far the word is : ", updated_current_guess )
+    
         
 if game_won:
     print("Congratulation ! You Won")
@@ -137,20 +145,11 @@ else:
 
 """   
 
-# Checks if the letter has been previously used
-
-    while guess in used_letters:
-        print("You have already guessed this letter: ", guess)
+# 
         
        
    
 
-    # Updates the guesses
-
-    if guess in word:
-        print("Great guess !")
-    else:
-        print("That was incorrect!")
     
 
         
