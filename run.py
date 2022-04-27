@@ -69,19 +69,43 @@ WORDS = ["BOX", "CAT", "ORANGES", "SYNDROME"]
 
 MAX_WRONG = len(HANGMANPICS) - 1
 
-# Variables
-
 # Word Randomisation
 
 word = random.choice(WORDS)
 
 # In words letters masking
 
-current_guess = "-" * len(word)
+current_guess = list(len(word)*"_")
+
+# Set the game progression Status
+
+game_won = False
 
 # Wrong guesses tracker
 
 wrong_guesses = 0
+
+# Variables
+
+# Generates a new scrambled version of the word
+
+def updated_current_guess(letter, word):
+    global current_guess
+    for i in range(0,len(word)):
+        letter = word[i]
+        if guess == letter:
+            current_guess[i] = guess
+    if "_" not in current_guess:
+        return True
+    else :
+        return False 
+def Status() :
+    print(current_guess)
+         
+       
+            
+"""   
+
 
 # Used letters tracker
 
@@ -98,7 +122,7 @@ print("Try guessing the word")
 
 while wrong_guesses < MAX_WRONG and current_guess != word:
 
-    print(HANGMANPICS[wrong_guesses])
+    
     print("You have used the following letters so far : ", used_letters)
     print("So far the word is : ", updated_current_guess )
     guess = input("Please enter your letter guess : ")
@@ -121,15 +145,7 @@ while wrong_guesses < MAX_WRONG and current_guess != word:
         print("Great guess !")
     else:
         print("That was incorrect!")
-    # Generates a new scrambled version of the word
-
-         
-        for i, letter in enumerate(word):
-            if guess == letter:
-                updated_current_guess += guess
-            else:
-                updated_current_guess += current_guess[i]
-                current_guess = updated_current_guess
+    
 
         
 
@@ -145,3 +161,4 @@ if wrong_guesses == MAX_WRONG:
     print("The correct word is", word)
 else:
     print("Congratulation ! You Won")
+"""
