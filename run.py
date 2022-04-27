@@ -85,12 +85,14 @@ game_won = False
 
 wrong_guesses = 0
 
+used_letters = []
+
 # Variables
 
 # Main loop creation
 
 # Player greeting and the rules of the game
-print(" The computer will generate a random word from a list")
+print("The computer will generate a random word from a list")
 print("Try guessing the word")
 
 # Generates a new scrambled version of the word
@@ -120,39 +122,28 @@ while game_won == False:
         game_won = updated_current_guess(guess, word)
     else:
         Status()
+    if wrong_guesses < MAX_WRONG and current_guess != word:
+        print("You have used the following letters so far : ", used_letters)
+        used_letters.append(guess)
+     # Updated the ussed letters list
 
+    
+        #print("So far the word is : ", updated_current_guess )
+        
 if game_won:
     print("Congratulation ! You Won")
 else:
     print("You have lost ")
-    
-
-
-"""while wrong_guesses < MAX_WRONG and current_guess != word:
-
-    
-    print("You have used the following letters so far : ", used_letters)
-    print("So far the word is : ", updated_current_guess )"""
-
-
-
 
 """   
-
-
-
-    
 
 # Checks if the letter has been previously used
 
     while guess in used_letters:
         print("You have already guessed this letter: ", guess)
-        guess = input("Enter your letter guess: ")
-        guess = guess.upper()
+        
        
-    # Updated the ussed letters list
-
-    used_letters.append(guess)
+   
 
     # Updates the guesses
 
