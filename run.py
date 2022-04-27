@@ -1,6 +1,6 @@
 """ Imports"""
 
-import random
+import os, random, images
 
 # Hangman Game
 # Computer will generate a random word from a list
@@ -108,8 +108,9 @@ def updated_current_guess(letter, word):
     else:
         return False 
 def Status():
+    #os.system("clear")
     print(current_guess)
-   # print(HANGMANPICS)
+   # print(images.HANGMANPICS)
          
 while game_won == False:
     Status()
@@ -124,7 +125,7 @@ while game_won == False:
     else:
         Status()
          # Updated the ussed letters list
-
+    Status()
     if wrong_guesses < MAX_WRONG and current_guess != word:
         print("You have used the following letters so far : ", used_letters)
         #print(HANGMANPICS)
