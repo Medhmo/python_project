@@ -86,6 +86,9 @@ wrong_guesses = 0
 # Used letters tracker
 
 used_letters = []
+updated_current_guess = ""
+
+
 
 # Main loop creation
 
@@ -97,7 +100,7 @@ while wrong_guesses < MAX_WRONG and current_guess != word:
 
     print(HANGMANPICS[wrong_guesses])
     print("You have used the following letters so far : ", used_letters)
-    print("So far the word is : ",  )
+    print("So far the word is : ", updated_current_guess )
     guess = input("Please enter your letter guess : ")
     guess = guess.upper()
 
@@ -118,17 +121,17 @@ while wrong_guesses < MAX_WRONG and current_guess != word:
         print("Great guess !")
     else:
         print("That was incorrect!")
-
     # Generates a new scrambled version of the word
 
-    updated_current_guess = ""
-    for letter in range(len(word)):
-        if guess == word[letter]:
-            updated_current_guess += guess
-        else:
-            updated_current_guess += current_guess[letter]
-            current_guess == updated_current_guess
+         
+        for i, letter in enumerate(word):
+            if guess == letter:
+                updated_current_guess += guess
+            else:
+                updated_current_guess += current_guess[i]
+                current_guess = updated_current_guess
 
+        
 
     # Updates the number of incorrect guesses
 
