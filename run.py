@@ -89,7 +89,7 @@ used_letters = []
 
 # Remaining lives tracker
 
-lives = 7
+lives = 6
 
 # Variables
 
@@ -114,7 +114,7 @@ def updated_current_guess(letter, word):
 def Status():
     #os.system("clear")
     print(current_guess)
-    print(images.HANGMANPICS[7-lives])
+    print(images.HANGMANPICS[6-lives])
     print("You have" ,lives, "lives remaining")
          
 while game_won == False and lives > 0:
