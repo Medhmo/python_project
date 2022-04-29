@@ -1,3 +1,5 @@
+"""Pictures of the states of the game progression
+    """
 HANGMANPICS = ['''
   +---+
   |   |
