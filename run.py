@@ -2,6 +2,7 @@
 
 import random
 import images
+import wordlist
 
 # Hangman Game
 # The computer will generate a random WORD from a list
@@ -12,6 +13,7 @@ import images
 
 USERNAME = str(input("Please enter a Username : "))
 print("Welcome to Hangman " + USERNAME + " Best of luck ! ")
+print("Make your first guess to reveal the game")
 
 # Constants
 
@@ -66,13 +68,12 @@ HANGMANPICS = ['''
       |
 =========''']
 
-WORDS = ["BOX", "CAT", "ORANGES", "SYNDROME"]
-
+WORDS = random.choice(wordlist.hangman_word_list)
 MAX_WRONG = len(HANGMANPICS) - 1
 
 # Word Randomisation
 
-WORD = random.choice(WORDS)
+WORD = (WORDS)
 
 # In words letters masking
 

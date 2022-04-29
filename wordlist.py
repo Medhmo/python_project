@@ -1,4 +1,4 @@
-""" List of words pasted from 
+""" List of words pasted from
 https://www.hangmanwords.com/words"""
 
 hangman_word_list = """
