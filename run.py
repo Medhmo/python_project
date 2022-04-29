@@ -4,8 +4,8 @@ import random
 import images
 
 # Hangman Game
-# Computer will generate a random WORD from a list
-# Player tries to guess the full WORD
+# The computer will generate a random WORD from a list
+# Player tries to guess the full word
 # Or one letter at the time
 
 # User welcome and username selection
@@ -76,21 +76,21 @@ WORD = random.choice(WORDS)
 
 # In words letters masking
 
-current_guess = list(len(WORD)*"_")
+CURRENT_GUESS = list(len(WORD)*"_")
 
-# Set the game progression Status
+# Sets the game progression Status
 
-game_won = False
+GAME_WON = False
 
-# Wrong guesses tracker
+# Wrong guesses and used letters tracker
 
-wrong_guesses = 0
+WRONG_GUESSES = 0
 
-used_letters = []
+USED_LETTERS = []
 
 # Remaining lives tracker
 
-lives = 6
+LIVES = 6
 
 # Variables
 
@@ -98,12 +98,12 @@ lives = 6
 
 # Player greeting and the rules of the game
 print("The computer will generate a random WORD from a list")
-print("Try guessing the WORD")
+print("Try guessing the word")
 
-# Generates a new scrambled version of the WORD
+# Generates a new scrambled version of the word
 
 
-def updated_current_guess(letter, WORD):
+def updated_current_guess(letter, curent_word):
     """updates the current guess
 
     Args:
@@ -114,12 +114,12 @@ def updated_current_guess(letter, WORD):
         bool:True if the letter is in the WORD
     """
 
-    global current_guess
-    for i in range(0, len(WORD)):
-        letter = WORD[i]
+    global CURRENT_GUESS
+    for i, in enumerate(curent_word):
+        letter = curent_word[i]
         if guess == letter:
-            current_guess[i] = guess
-    if "_" not in current_guess:
+            CURRENT_GUESS[i] = guess
+    if "_" not in CURRENT_GUESS:
         return True
     else:
         return False
@@ -128,43 +128,43 @@ def updated_current_guess(letter, WORD):
 def status():
     """_summary_
     """
-    print(images.HANGMANPICS[6-lives])
-    print(current_guess)
-    print("You have", lives, "lives remaining")
+    print(images.HANGMANPICS[6-LIVES])
+    print(CURRENT_GUESS)
+    print("You have", LIVES, "lives remaining")
 
 
-while not game_won and lives > 0:
+while not GAME_WON and LIVES > 0:
     # status()
     guess = input("Please enter your letter guess : ")
     guess = guess.upper()
 
     if guess == WORD:
-        game_won = True
-        current_guess = WORD
+        GAME_WON = True
+        CURRENT_GUESS = WORD
     if len(guess) == 1 and guess in WORD:
-        game_won = updated_current_guess(guess, WORD)
+        GAME_WON = updated_current_guess(guess, WORD)
     else:
-        lives -= 1
+        LIVES -= 1
         # Status()
-        # Updated the ussed letters list
+        # Updated the used letters list
     status()
-    if wrong_guesses < MAX_WRONG and current_guess != WORD:
-        print("You have used the following letters so far : ", used_letters)
-        # print(HANGMANPICS)
-        used_letters.append(guess)
+    if WRONG_GUESSES < MAX_WRONG and CURRENT_GUESS != WORD:
+        print("You have used the following letters so far : ", USED_LETTERS)
+        # Print(HANGMANPICS)
+        USED_LETTERS.append(guess)
     # Checks if the letter has been previously used
-    if guess in used_letters:
-        print("You have already guessed this letter: ", guess)
+    if guess in USED_LETTERS:
+        print("Your last guessed letter is: ", guess)
     # Feedback on the guesses
     if guess in WORD:
         print("Great guess !")
     else:
         print("That was incorrect!")
 
-    if lives == 0:
-        print("you ran out of lives , the WORD is : ", WORD)
+    if LIVES == 0:
+        print("You ran out of lives , the word is : ", WORD)
 
-if game_won:
+if GAME_WON:
     print("Congratulation ! You Won")
 else:
-    print("You have lost ")
+    print("SORRY , you have lost ")
