@@ -11,7 +11,7 @@ import wordlist
 
 # User welcome and username selection
 
-USERNAME = str(input("Please enter a Username : "))
+USERNAME = str(input("Please enter a Username :\n "))
 print("Welcome to Hangman " + USERNAME + " Best of luck ! ")
 print("Make your first guess to reveal the game")
 
@@ -136,7 +136,7 @@ def status():
 
 while not GAME_WON and LIVES > 0:
     # status()
-    guess = input("Please enter your letter guess : ")
+    guess = input("Please enter your letter guess :\n ")
     guess = guess.upper()
 
     if guess == WORD:
