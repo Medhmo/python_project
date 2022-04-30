@@ -57,14 +57,11 @@ Testing report for the run.py folder
 Testing report for the wordlist folder
 
 # Deployment #
-- The application was deployed to GitHub pages . The deployment steps are as follows:
-    - In my project GitHub repository , at the top right click the setting tab 
-    - From the source section , select Master Branch
-    - Once selected , the page will generate a live link for the website.
-- The applicaion was deployed to heroku using the push to main method
+- The application was deployed to git hub by using
+git push origin main
+- The application was deployed to heroku hub by using
+git push heroku main
 
-The live link to my project website 
-- []()
 
 # Credit #
 
@@ -78,6 +75,8 @@ I have used :
 - Snip and Sketch
 - MDN web Docs
 - GitHub and Heroku for deployment
+- Hangman words for the words 
+- Pep 8 for validation
 
 # Honorable Mentions #
 Special thanks to :
